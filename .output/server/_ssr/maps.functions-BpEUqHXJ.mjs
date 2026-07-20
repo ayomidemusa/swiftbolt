@@ -1,0 +1,34 @@
+import { i as TSS_SERVER_FUNCTION, l as createServerFn } from "./esm-Dova13aH.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/maps.functions-BpEUqHXJ.js
+var createServerRpc = (serverFnMeta, splitImportFn) => {
+	const url = "/_serverFn/" + serverFnMeta.id;
+	return Object.assign(splitImportFn, {
+		url,
+		serverFnMeta,
+		[TSS_SERVER_FUNCTION]: true
+	});
+};
+var geocodeAddress_createServerFn_handler = createServerRpc({
+	id: "1fa8cd42fb8cf91e966958a3ac686fb89d31e677c59670df4559bc460717c1df",
+	name: "geocodeAddress",
+	filename: "src/lib/maps.functions.ts"
+}, (opts) => geocodeAddress.__executeServer(opts));
+var geocodeAddress = createServerFn({ method: "POST" }).validator((d) => d).handler(geocodeAddress_createServerFn_handler, async ({ data }) => {
+	const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(data.query)}`;
+	return { results: (await (await fetch(url, { headers: { "User-Agent": "Swift Ride App" } })).json()).slice(0, 5).map((item) => ({
+		address: item.display_name,
+		lat: parseFloat(item.lat),
+		lng: parseFloat(item.lon)
+	})) };
+});
+var reverseGeocode_createServerFn_handler = createServerRpc({
+	id: "63ee0bac8dc00de0a11b2bfff413e5f6b243c8e8591f03c89a4a988923e507af",
+	name: "reverseGeocode",
+	filename: "src/lib/maps.functions.ts"
+}, (opts) => reverseGeocode.__executeServer(opts));
+var reverseGeocode = createServerFn({ method: "POST" }).validator((d) => d).handler(reverseGeocode_createServerFn_handler, async ({ data }) => {
+	const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${data.lat}&lon=${data.lng}`;
+	return { address: (await (await fetch(url, { headers: { "User-Agent": "Swift Ride App" } })).json()).display_name || "Selected location" };
+});
+//#endregion
+export { geocodeAddress_createServerFn_handler, reverseGeocode_createServerFn_handler };

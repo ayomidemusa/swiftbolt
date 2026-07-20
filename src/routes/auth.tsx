@@ -25,9 +25,27 @@ function AuthPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => {
-      if (session) navigate({ to: "/" });
+    const { data: sub } = supabase.auth.onAuthStateChange(async (_e, session) => {
+  
+      if (!session) return;
+  
+      const { data: driver } = await supabase
+        .from("drivers")
+        .select("id")
+        .eq("user_id", session.user.id)
+        .maybeSingle();
+  
+      if (driver) {
+        navigate({
+          to: "/driver/dashboard",
+        });
+      } else {
+        navigate({
+          to: "/",
+        });
+      }
     });
+  
     return () => sub.subscription.unsubscribe();
   }, [navigate]);
 

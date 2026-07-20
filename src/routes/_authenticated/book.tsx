@@ -172,7 +172,7 @@ function BookPage() {
   
             car_class: carClass,
             price,
-            status: "confirmed",
+            status: "pending",
           })
           .select("id")
           .single();
@@ -182,13 +182,13 @@ function BookPage() {
       await ensureNotificationPermission();
   
       toast.success(
-        `Payment authorized • Driver arriving in ${cls.eta} min`
-      );
-  
-      pushNotify(
+        "Searching for nearby drivers..."
+    );
+    
+    pushNotify(
         "Swift",
-        `Ride confirmed — driver arriving in ${cls.eta} min`
-      );
+        "Looking for an available driver..."
+    );
   
       setCheckoutOpen(false);
   
