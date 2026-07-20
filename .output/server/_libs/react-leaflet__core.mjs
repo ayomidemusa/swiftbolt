@@ -1,6 +1,6 @@
 import { n as __toESM } from "../_runtime.mjs";
 import { n as require_react } from "./@radix-ui/react-compose-refs+[...].mjs";
-import { r as require_react_dom } from "./@radix-ui/react-label+[...].mjs";
+import { i as require_react_dom } from "./@radix-ui/react-label+[...].mjs";
 require_react_dom();
 var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 function createLeafletContext(map) {

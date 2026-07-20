@@ -2,8 +2,8 @@ import { n as __toESM } from "../_runtime.mjs";
 import { t as supabase } from "./client-F__N42p1.mjs";
 import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
 import { F as useRouter } from "../_libs/@tanstack/react-router+[...].mjs";
-import { i as require_jsx_runtime } from "../_libs/@radix-ui/react-label+[...].mjs";
-import { a as User, h as LogOut, m as Mail } from "../_libs/lucide-react.mjs";
+import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
+import { _ as Mail, a as User, v as LogOut } from "../_libs/lucide-react.mjs";
 import { t as AppShell } from "./AppShell-D5kbQcWh.mjs";
 import { t as Button } from "./button-DRsC1qZi.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/account-DqhNVPLY.js

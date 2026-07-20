@@ -1,7 +1,7 @@
 import { t as supabase } from "./client-F__N42p1.mjs";
 import { F as useRouter, h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { i as require_jsx_runtime } from "../_libs/@radix-ui/react-label+[...].mjs";
-import { a as User, h as LogOut, p as MapPin, t as Zap, v as Clock } from "../_libs/lucide-react.mjs";
+import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
+import { S as Clock, a as User, g as MapPin, t as Zap, v as LogOut } from "../_libs/lucide-react.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/AppShell-D5kbQcWh.js
 var import_jsx_runtime = require_jsx_runtime();
 function AppShell({ children, active }) {
